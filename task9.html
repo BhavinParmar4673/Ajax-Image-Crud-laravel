@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Increment decrement</title>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <style type="text/css">
+    div.div{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="div">  
+
+  <h1>Increment and Decremnt in button click</h1><br>  
+ <button type="button" id="add_fields">Add</button><br> <br>
+ <div id="add_people_div"></div>
+</div>
+  <script type="text/javascript">
+$(document).ready( function(){
+    $('#add_fields').click( function(){
+      var counter =1;
+      var row_id = "row" + counter;
+      var html = '<div class="record" id="demo"><input type="button" value="+" id="add" class="increment">&nbsp; <input type="text" id="number" value="0" name="number" class="number">&nbsp;<input type="button" id="sub" value="-"  class="decrement">&nbsp;<button type="button" class="remove_fields">X</button></div><br>';
+      $('#add_people_div').append(html);
+        var button_id = "button" + counter;
+        var input_id = "input" + counter;
+        $('#'+row_id).find('button').attr('id',button_id);
+        $('#'+row_id).find('input').attr('id',input_id);
+        counter ++;
+    });
+
+        $(document).on('click','.remove_fields', function() {
+        $(this).closest('.record').remove();
+        });
+    
+        $(document).on('click','.increment', function() {
+        var value = $(this).closest('.record').children('.number').val();
+        ++value;
+        $(this).closest('.record').children('.number').val(value);
+        });
+        
+        $(document).on('click','.decrement', function() {
+        var value = $(this).closest('.record').children('.number').val();
+        --value;
+        $(this).closest('.record').children('.number').val(value);
+        });
+
+      
+
+     
+});
+
+</script>

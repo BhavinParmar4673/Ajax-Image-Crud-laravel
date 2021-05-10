@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Texbox in on keyup</title>
+<style>
+div.div{
+	text-align:center;
+}
+p#demo{
+	color: blue;
+	font-family: "Times New Roman", Times, serif;
+}
+</style>
+</head>
+<body>
+<div class="div">
+	<h1>Onkeyup Texbox in js</h1><br>
+	<label>Onkeyup Event</label> &nbsp;
+	<input type="text" id="name">
+	<p id="demo">
+	</p>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $("input").keyup(function(){
+	var x= $(this).val();
+	$('#demo').text(x);
+  });
+  });
+// 	function myfunction(){
+// 		var x=document.getElementById("name").value;	
+// 		document.getElementById("demo").innerHTML=x;
+// }
+
+</script>
+
+</html>

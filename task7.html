@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<ul id="myList1">
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
+
+<ul id="myList2">
+  <li>Water</li>
+  <li>Milk</li>
+</ul>
+
+<p>Click the button to copy an item from one list to another.</p>
+
+<button id="button">Try it</button>
+
+<p>Try changing the <em>deep</em> parameter to false, and only an empty LI element will be cloned.</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+  $(document).ready(function(){
+    $('#button').click(function(){
+    // get value of last element of ul
+     var itm = $('#myList2 li:last').text();
+    //  set last value of li in <li> using createnew li element after textcontent to set value in li tag  after append mylist1 ul 
+     let li = document.createElement('li');
+     li.textContent = itm;
+      $('#myList1').append(li);
+
+    })
+  })
+
+// function myFunction() {
+//   var itm = document.getElementById("myList2").lastChild;
+//   var cln = itm.cloneNode(true);
+//   document.getElementById("myList1").appendChild(cln);
+// }
+
+</script>
+
+</body>
+</html>

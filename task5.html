@@ -1,0 +1,76 @@
+	<html>
+	<head>
+	<title>Add dropdown menu in js</title>
+	<style type="text/css">
+		div.div{
+			text-align: center;
+		}
+	</style>
+	</head>
+	<body>
+	<div class="div">
+	<h1>Add dropdown menu and make a time and volume conversion</h1>
+	<select id="option" name="option" onchange="convert()">
+	  <option value="Speed">Speed</option>
+	  <option value="Temperature">Temperature</option>
+	  <option value="Time">Time</option>
+	  <option value="Volume">Volume</option>
+	</select>
+	<br><br>
+	<label id="lbl1">Meter</label><input id="input1"   onkeyup="convert('input1')"> =
+	<label id="lbl2">Kilometer</label><input id="input2"   onkeyup="convert('input2')"> 
+
+	</div>
+
+	<script type="text/javascript">
+		function convert(degree){
+		 var x;
+		 var d = document.getElementById("option").value;
+		 if(d=="Speed"){
+		 	 document.getElementById('lbl1').innerHTML = 'Meter';
+		 	 document.getElementById('lbl2').innerHTML = 'Kilometer';
+		 	  if (degree == "input1") {
+				    x = document.getElementById("input1").value/1000;
+				    document.getElementById("input2").value = (x);
+				  } else {
+				    x = document.getElementById("input2").value*1000;
+				    document.getElementById("input1").value  =(x);
+				  }
+		 } else if(d=="Temperature"){
+		 	 document.getElementById('lbl1').innerHTML = 'Celsuis';
+		 	 document.getElementById('lbl2').innerHTML = 'Feherenhit';
+			 	   if (degree == "input1") {
+			    x = document.getElementById("input1").value * 9 / 5 + 32;
+			    document.getElementById("input2").value =Math.round(x);
+			  } else {
+			    x = (document.getElementById("input2").value -32) * 5 / 9;
+			    document.getElementById("input1").value  =Math.round(x);
+			  }
+		 } else if(d=="Time"){
+		 	 document.getElementById('lbl1').innerHTML = 'Second';
+		 	 document.getElementById('lbl2').innerHTML = 'Minute';
+		 	 if (degree == "input1") {
+				    x = document.getElementById("input1").value/60;
+				    document.getElementById("input2").value = (x);
+				  } else {
+				    x = document.getElementById("input2").value*60;
+				    document.getElementById("input1").value  =(x);
+				  }
+	     }else{
+	     	 document.getElementById('lbl1').innerHTML = 'Millileter';
+		 	 document.getElementById('lbl2').innerHTML = 'Liter';
+		 	   if (degree == "input1") {
+				    x = document.getElementById("input1").value/1000;
+				    document.getElementById("input2").value = (x);
+				  } else {
+				    x = document.getElementById("input2").value*1000;
+				    document.getElementById("input1").value  =(x);
+				  }
+	     }
+	    }
+
+
+		
+	</script>
+	</body>
+	</html>

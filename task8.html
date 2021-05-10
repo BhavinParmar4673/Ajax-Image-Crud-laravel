@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Increment decrement</title>
+  <style type="text/css">
+    div.div{
+      text-align: center;
+    }
+  </style>
+</head>
+</head>
+<body>
+  <div class="div">
+  <h1>Increment and Decremnt in button click</h1>
+
+  <button id="add">+</button>
+  <input type="text" id="counter"/>
+  <button id="subtract">-</button>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+      var counter = 0;
+
+      $('#counter').val(counter);
+
+      $("#add").click(function(){
+      counter = counter + 1;
+      $("#counter").val(counter);
+    });
+
+      $("#subtract").click(function(){
+      counter = counter - 1;
+      $("#counter").val(counter);
+    });
+});
+
+    // var value = parseInt(document.getElementById('number').value);
+    // function incrementValue() {
+    // value = isNaN(value) ? 0 : value;
+    // value++;
+    // document.getElementById('number').value = value;
+    // }
+    // function deccrementValue() {
+    // value = isNaN(value) ? 0 : value;
+    // value--;
+    // document.getElementById('number').value = value;
+    // }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Main_div{
+            background-color: aqua;
+            width: 600px;
+            height: 300px;
+            border: 2px solid green;
+        }.list,.record{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+        }.task{
+            background-color:darkgreen;
+            font-weight: 800;
+            color: chartreuse;
+            width: 190px;
+        }.remove_fields{
+            background-color: crimson;
+            color: darkgray;
+        }.edit{
+            background-color:yellowgreen;
+            color:black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="Main_div">
+        <div class="list">
+            <input type="text" name="task" id="input">
+            <button type="submit" name="submit" class="submit">Add</button>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    $(document).ready(function(){
+        $('.submit').click(function(){
+        var task = $('#input').val();
+        var newdiv = '<div class="record" id="demo">'+
+                      '<span id="task" name="task" class="task">'+task+'</span>' +
+                      '<button type="button" id="edit" class="edit">Edit</button>' +
+                      '<button type="button" id="remove" class="remove_fields">X</button>' +
+                      '</div>';
+        
+        $('.Main_div').append(newdiv);
+        $('#input').val('');
+    
+        });
+
+        $(document).on('click','.remove_fields', function() {
+        $(this).closest('.record').remove();
+        });
+
+        $(document).on('click','.edit', function() {
+        var value = $(this).closest('.record').children('.task').text();
+        $(this).closest('.record').children('.task').text(value);
+        });
+    
+
+    });
+    </script>
+</body>
+</html>

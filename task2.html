@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Show and hide buttons</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+div.div{
+	text-align:center;
+}
+p.demo{
+	color: red;
+	font-family: "Times New Roman", Times, serif;
+	display: none;
+}
+button{
+	background:blue;
+	color: white;
+	padding: 15px 32px;
+	font-size:12px;
+}
+</style>
+</head>
+<body>
+<div class="div">
+	<h1>Onkeyup Texbox in Multiplication</h1><br>
+	<p id="demo" class="demo">You can show hide and show with the buttons.</p>
+	<button id="divhide">Hide the text above</button>
+	<button id="divshow">show the text above</button>
+</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+  $("#divshow").click(function(){
+    $("#demo").css("display","block");
+  });
+   $("#divhide").click(function(){
+    $("#demo").css("display","none");
+  });
+});
+</script>
+</html>

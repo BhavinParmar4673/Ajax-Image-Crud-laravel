@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Color Picker Webzone</title>
+    <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <style type="text/css">
+    .div{
+      text-align: center;
+    }
+ .show-color{
+  width: 35%;
+  height: 75px;
+  margin: -220px 60px;
+  padding: 40px;
+  border:2px solid black;
+  box-sizing: border-box;
+}
+ .slide {
+  -webkit-appearance: none;
+  width: 20%;
+  height: 25px;
+  background:#ad5506;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slide:hover {
+  opacity: 1;
+}
+
+.slide::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.slide::-moz-range-thumb {
+  width: 25px;
+  height: 15px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+.rgb-slider{
+  margin:0px 0px 0px 410px;
+}
+input.control{
+  width: 8%;
+  border:1px solid black;
+}p{
+  margin-left: -150px;
+}
+   </style>
+  </head>
+  <body>
+
+<script>
+
+    //change range and  set a color with range and div
+     $(document).ready(function(){
+       $(".r, .g, .b").on('keyup change', function(){
+         var r = $(".r").val();
+         var g = $(".g").val();
+         var b = $(".b").val();
+
+        $(".show-color").css("background", "rgb("+r+","+g+","+b+")");
+        $("#slidered").css("background","rgb("+r+","+0+","+0+")" );
+        $("#slidegreen").css("background", "rgb("+0+","+g+","+0+")");
+        $("#slideblue").css("background", "rgb("+0+","+0+","+b+")");
+        $(".red").val(r);
+        $(".green").val(g);
+        $(".blue").val(b);                
+     });
+
+        //change input number and  set a color  div
+        $('.red,.green,.blue').on('input change', function(){
+          var r = $(".red").val();
+          var g = $(".green").val();
+          var b = $(".blue").val()
+        $(".show-color").css("background", "rgb("+r+","+g+","+b+")");
+        });
+
+        //change input number and  set a color with each color range input type
+        $('.red').on('input change', function() {
+        var R = this.value;
+         $("#slidered").css("background", "rgb("+R+","+0+","+0+")");
+         });
+       $('.green').on('input change', function() {
+        var G = this.value;
+         $("#slidegreen").css("background", "rgb("+0+","+G+","+0+")");
+         });
+       $('.blue').on('input change', function() {
+        var B = this.value;
+        console.log(B);
+         $("#slideblue").css("background", "rgb("+0+","+0+","+B+")");
+         });
+        });
+
+
+
+
+
+
+</script>
+    <div class="div">
+    <h1>Color Picker</h1>
+          <div class="rgb-slider">
+
+        <p>Red :</p> <input type ="number" value="50" id="red" class="red"> &nbsp; &nbsp;
+        <input type="range" id="slidered"  max="255" min="0" step="1" class="slide r"><br>
+        
+       <p>Green :</p> <input type ="text" value="50" class="green"> &nbsp; &nbsp;
+        <input type="range"  id="slidegreen"  max="255" min="0" step="1" class="slide g"><br>
+
+      <p>Blue :</p> <input type ="number" value="50" class="blue"> &nbsp; &nbsp;
+        <input type="range"  id="slideblue" max="255" min="0" step="1" class="slide b"><br>
+
+          </div>
+
+          <div class="show-color"></div>
+
+</div>  
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>price and quantity</title>
+<style>
+div.div{
+	text-align:center;
+}
+p#demo{
+	color: blue;
+	font-family: "Times New Roman", Times, serif;
+}
+</style>
+</head>
+<body>
+<div class="div">
+	<h1>Onkeyup Texbox in Multiplication</h1><br>
+	<label>Price</label> <input type="text" id="input1" onkeyup="myfunction()">&nbsp; * &nbsp; 
+	<label>Qty</label><input type="text" id="input2" onkeyup="myfunction()">
+	<p id="demo">
+	</p>
+</div>
+</body>
+<script type="text/javascript">
+	function myfunction(){
+		var input1=document.getElementById("input1").value;	
+		var input2=document.getElementById("input2").value;
+		var x	= input1 * input2; 
+		document.getElementById("demo").innerHTML=x;
+}
+</script>
+
+</html>
